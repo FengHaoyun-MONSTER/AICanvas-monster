@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* PandaCanvas Purple Theme */
+  --pc-primary: #8b5cf6;
+  --pc-primary-light: #a78bfa;
+  --pc-primary-dark: #7c3aed;
+  --pc-primary-bg: #ede9fe;
+  --pc-primary-bg-hover: #ddd6fe;
+  
+  --pc-bg: #f0f0f5;
+  --pc-canvas-bg: #e8e8ee;
+  --pc-surface: #ffffff;
+  --pc-surface-hover: #f8f7ff;
+  
+  --pc-text-primary: #1e1e2e;
+  --pc-text-secondary: #64748b;
+  --pc-text-muted: #94a3b8;
+  
+  --pc-border: #e2e8f0;
+  --pc-border-hover: #cbd5e1;
+  
+  --pc-toolbar-bg: #ffffff;
+  --pc-toolbar-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --pc-toolbar-radius: 12px;
+  
+  --pc-btn-radius: 8px;
+  --pc-transition: all 0.15s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  overflow: hidden;
+  background: var(--pc-bg);
+  color: var(--pc-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ──── Tool Button Base ──── */
+.tool-btn {
+  background: transparent;
+  border: none;
+  color: var(--pc-text-secondary);
+  cursor: pointer;
+  border-radius: var(--pc-btn-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  transition: var(--pc-transition);
+  position: relative;
+}
+
+.tool-btn:hover {
+  background: var(--pc-primary-bg);
+  color: var(--pc-primary);
+}
+
+.tool-btn.active {
+  background: var(--pc-primary);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.35);
+}
+
+.tool-btn:active {
+  transform: scale(0.92);
+}
+
+/* ──── Tool Divider ──── */
+.tool-divider {
+  width: 1px;
+  height: 24px;
+  background: var(--pc-border);
+  margin: 0 4px;
+  flex-shrink: 0;
+}
+
+/* ──── Topbar ──── */
+.topbar {
+  height: 48px;
+  background: var(--pc-surface);
+  border-bottom: 1px solid var(--pc-border);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  justify-content: space-between;
+  z-index: 100;
+  position: relative;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.topbar-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  padding: 4px 12px;
+  border-radius: 6px;
+  transition: var(--pc-transition);
+  color: var(--pc-text-primary);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.topbar-center:hover {
+  background: var(--pc-primary-bg);
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ──── Logo ──── */
+.logo {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, var(--pc-primary), var(--pc-primary-dark));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+/* ──── Badge ──── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.badge-free {
+  background: var(--pc-primary-bg);
+  color: var(--pc-primary);
+}
+
+.badge-credits {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+/* ──── Upgrade Button ──── */
+.upgrade-btn {
+  background: linear-gradient(135deg, var(--pc-primary), #6d28d9);
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--pc-transition);
+  white-space: nowrap;
+}
+
+.upgrade-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+}
+
+/* ──── Avatar ──── */
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--pc-primary-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--pc-transition);
+  color: var(--pc-primary);
+}
+
+.avatar:hover {
+  background: var(--pc-primary-bg-hover);
+}
+
+/* ──── Bottom Toolbar ──── */
+.bottom-toolbar {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--pc-toolbar-bg);
+  border-radius: var(--pc-toolbar-radius);
+  box-shadow: var(--pc-toolbar-shadow);
+  display: flex;
+  align-items: center;
+  padding: 4px 8px;
+  gap: 2px;
+  z-index: 10;
+}
+
+/* ──── Bottom-Right Controls ──── */
+.bottom-right-controls {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+}
+
+.control-group {
+  background: var(--pc-toolbar-bg);
+  border-radius: var(--pc-toolbar-radius);
+  box-shadow: var(--pc-toolbar-shadow);
+  display: flex;
+  align-items: center;
+  padding: 4px 6px;
+  gap: 2px;
+}
+
+.zoom-input {
+  width: 52px;
+  text-align: center;
+  border: none;
+  background: transparent;
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  color: var(--pc-text-primary);
+  font-weight: 500;
+  outline: none;
+  padding: 4px 2px;
+}
+
+.zoom-input:focus {
+  background: var(--pc-primary-bg);
+  border-radius: 4px;
+}
+
+/* ──── Bottom-Left Hint ──── */
+.bottom-left-hint {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: rgba(30, 30, 46, 0.8);
+  backdrop-filter: blur(8px);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ──── Animations ──── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ──── Scrollbar ──── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pc-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pc-border-hover);
+}
+
+/* ──── Toast / Coming Soon ──── */
+.toast {
+  position: fixed;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--pc-text-primary);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  z-index: 9999;
+  animation: fadeIn 0.2s ease-out;
+  pointer-events: none;
+}
